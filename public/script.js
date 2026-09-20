@@ -3,6 +3,125 @@ document.addEventListener("DOMContentLoaded", function () {
   const themeToggle = document.getElementById("themeToggle");
   const html = document.documentElement;
   const icon = themeToggle.querySelector("i");
+  const typingText = document.getElementById("typingEffect");
+
+  const texts = [
+    "FullStack Developer",
+    "Backend Developer",
+    "Web Developer",
+    "Discord Bot Developer",
+    "Roblox Luau Developer",
+    "Python Developer",
+  ];
+
+  let textIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    const currentText = texts[textIndex];
+
+    if (!isDeleting) {
+      typingText.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
+
+      if (charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(typeEffect, 2000);
+        return;
+      }
+    } else {
+      typingText.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+
+      if (charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+      }
+    }
+
+    setTimeout(typeEffect, isDeleting ? 50 : 100);
+  }
+
+  typeEffect();
+
+  const contactForm = document.getElementById("contactForm");
+  const submitButton = document.getElementById("submitButton");
+  const formMessage = document.getElementById("formMessage");
+
+  contactForm.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    const originalButtonContent = submitButton.innerHTML;
+
+    // Loading state
+    submitButton.disabled = true;
+    submitButton.classList.add("opacity-70", "cursor-not-allowed");
+    submitButton.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i>
+    Sending...`;
+
+    // Hide previous message
+    formMessage.classList.add("hidden", "opacity-0", "translate-y-2");
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        // Clear form
+        contactForm.reset();
+
+        // Success message
+        formMessage.textContent = "Message sent successfully!";
+        formMessage.className =
+          "rounded-lg px-4 py-3 text-sm bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 opacity-0 translate-y-2 transition-all duration-300";
+
+        // Animate message in
+        requestAnimationFrame(() => {
+          formMessage.classList.remove("opacity-0", "translate-y-2");
+        });
+
+        // Restore button
+        submitButton.innerHTML = ` <i class="fa-solid fa-check mr-2"></i> Message Sent `;
+
+        // Hide message after 5 seconds
+        setTimeout(() => {
+          formMessage.classList.add("opacity-0", "translate-y-2");
+          setTimeout(() => {
+            formMessage.classList.add("hidden");
+          }, 300);
+        }, 5000);
+
+        // Restore button after 3 seconds
+        setTimeout(() => {
+          submitButton.innerHTML = originalButtonContent;
+          submitButton.disabled = false;
+          submitButton.classList.remove("opacity-70", "cursor-not-allowed");
+        }, 3000);
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      // Error message
+      formMessage.textContent = "Something went wrong. Please try again later.";
+
+      formMessage.className =
+        "rounded-lg px-4 py-3 text-sm bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400 opacity-0 translate-y-2 transition-all duration-300";
+
+      requestAnimationFrame(() => {
+        formMessage.classList.remove("opacity-0", "translate-y-2");
+      });
+
+      // Restore button
+      submitButton.innerHTML = originalButtonContent;
+      submitButton.disabled = false;
+      submitButton.classList.remove("opacity-70", "cursor-not-allowed");
+    }
+  });
 
   // Check for saved theme preference or prefer-color-scheme
   const savedTheme = localStorage.getItem("theme");
@@ -21,20 +140,27 @@ document.addEventListener("DOMContentLoaded", function () {
   themeToggle.addEventListener("click", function () {
     html.classList.toggle("dark");
 
-    // Update the icon
-    if (html.classList.contains("dark")) {
-      icon.classList.replace("fa-moon", "fa-sun");
-      localStorage.setItem("theme", "dark");
-      document
-        .querySelector('meta[name="theme-color"]')
-        .setAttribute("content", "#000000");
-    } else {
-      icon.classList.replace("fa-sun", "fa-moon");
-      localStorage.setItem("theme", "light");
-      document
-        .querySelector('meta[name="theme-color"]')
-        .setAttribute("content", "#0070f3");
-    }
+    icon.classList.add("rotate-180");
+
+    setTimeout(() => {
+      if (html.classList.contains("dark")) {
+        icon.classList.replace("fa-moon", "fa-sun");
+        localStorage.setItem("theme", "dark");
+
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", "#000000");
+      } else {
+        icon.classList.replace("fa-sun", "fa-moon");
+        localStorage.setItem("theme", "light");
+
+        document
+          .querySelector('meta[name="theme-color"]')
+          .setAttribute("content", "#0070f3");
+      }
+
+      icon.classList.remove("rotate-180");
+    }, 150);
   });
 
   // Mobile navigation toggle
@@ -85,36 +211,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
-  // Form submission handling
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      // Get form values
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const message = document.getElementById("message").value;
-
-      // Here you would typically send the data to a server
-      // For demo purposs, we'll just log it and show a success message
-      console.log("Form Submitted:", { name, email, message });
-
-      // Show success message
-      const button = contactForm.querySelector('button[type="submit"]');
-      const originalText = button.textContent;
-      button.textContent = "Message Sent!";
-
-      // Reset form
-      contactForm.reset();
-
-      // Restore button text after a delay
-      setTimeout(() => {
-        button.textContent = originalText;
-      }, 3000);
-    });
-  }
 
   // Add scroll events for header shadow and reveal animations
   const header = document.querySelector("header");
