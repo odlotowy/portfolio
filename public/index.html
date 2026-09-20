@@ -589,6 +589,42 @@
         </div>
     </section>
 
+    <!-- Back to Top Button -->
+    <button id="backToTop" aria-label="Scroll to top"
+        class="fixed bottom-8 right-8 z-50 p-3.5 rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-blue-600 hover:scale-110 hover:-translate-y-1 active:scale-95 group focus:outline-none opacity-0 pointer-events-none translate-y-4">
+        <i class="fa-solid fa-arrow-up text-lg group-hover:-translate-y-0.5 transition-transform"></i>
+    </button>
+
+    <!-- Script to handle Back to Top functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const backToTopBtn = document.getElementById('backToTop');
+
+            if (!backToTopBtn) return;
+
+            const toggleButtonVisibility = () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                }
+            };
+
+            // Sprawdź pozycję przy załadowaniu i podczas przewijania
+            window.addEventListener('scroll', toggleButtonVisibility);
+            toggleButtonVisibility();
+
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
     <!-- Contact Section -->
     <section id="contact" class="py-24 translate-y-4 transition-all duration-500 opacity-0">
         <div class="container mx-auto px-4">
@@ -606,7 +642,7 @@
                             <i class="fa-solid fa-envelope text-primary text-xl"></i>
                         </div>
                         <h3 class="text-xl font-bold mb-2">Email</h3>
-                        <p class="text-gray-600 dark:text-gray-400">antiolos17@gmail.com</p>
+                        <p class="text-gray-600 dark:text-gray-400">jack.perter12@gmail.com</p>
                     </div>
                     <!-- Location -->
                     <div class="bg-white dark:bg-dark-background p-6 rounded-lg shadow-lg text-center">
@@ -625,11 +661,11 @@
                         <div class="flex justify-center space-x-4">
                             <a href="#"
                                 class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                                <i class="fa-brands fa-github"></i>
+                                <i class="fa-brands fa-snapchat"></i>
                             </a>
                             <a href="#"
                                 class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                                <i class="fa-brands fa-linkedin"></i>
+                                <i class="fa-brands fa-github"></i>
                             </a>
                             <a href="#"
                                 class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
