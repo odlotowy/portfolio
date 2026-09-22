@@ -28,89 +28,65 @@
     <header
         class="fixed w-full top-0 z-50 bg-white/95 dark:bg-dark-background/95 backdrop-blur-sm shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4">
-            <nav class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <a href="#" class="text-xl font-extrabold">Odlotowy</a>
-                    <span class="text-primary text-2xl ml-1">•</span>
-                </div>
-                <ul class="flex space-x-8">
-                    <li>
-                        <a href="#features"
-                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Showcase</a>
-                    </li>
-                    <li>
-                        <a href="#about"
-                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-                    </li>
-                    <li>
-                        <a href="#skills"
-                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Skills</a>
-                    </li>
-                    <li>
-                        <a href="#projects"
-                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Projects</a>
-                    </li>
-                    <li>
-                        <a href="#contact"
-                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-                    </li>
-                </ul>
-                <div class="flex items-center space-x-4">
-                    <button id="themeToggle" aria-label="Toggle theme" class="w-10 h-10 flex items-center justify-center rounded-lg
-           bg-gray-100 dark:bg-gray-800
-           text-gray-600 dark:text-gray-300
-           hover:bg-gray-200 dark:hover:bg-gray-700
-           hover:text-primary dark:hover:text-primary
-           transition-all duration-300
-           hover:scale-105 active:scale-95">
+            <nav class="flex justify-between items-center py-4"> <!-- Logo -->
+                <div class="flex items-center"> <a href="#" class="text-xl font-extrabold">Odlotowy</a> <span
+                        class="text-primary text-2xl ml-1">•</span> </div> <!-- Desktop Navigation -->
+                <ul class="hidden md:flex space-x-8">
+                    <li> <a href="#features"
+                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                            Showcase </a> </li>
+                    <li> <a href="#about"
+                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                            About </a> </li>
+                    <li> <a href="#skills"
+                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                            Skills </a> </li>
+                    <li> <a href="#projects"
+                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                            Projects </a> </li>
+                    <li> <a href="#contact"
+                            class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                            Contact </a> </li>
+                </ul> <!-- Header Buttons -->
+                <div class="flex items-center space-x-4"> <!-- Theme Toggle --> <button id="themeToggle"
+                        aria-label="Toggle theme"
+                        class="w-10 h-10 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:text-primary dark:hover:text-primary transition-all duration-300 hover:scale-105 active:scale-95">
                         <i id="themeIcon" class="fa-solid fa-moon text-lg transition-transform duration-300"></i>
-                    </button>
-                    <button class="md:hidden p-2" id="menuToggle">
-                        <div class="w-6 h-5 flex flex-col justify-between">
-                            <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
-                            <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
-                            <span class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span>
-                        </div>
-                    </button>
-                </div>
+                    </button> <!-- Mobile Hamburger --> <button id="menuToggle" aria-label="Open menu"
+                        class="md:hidden w-10 h-10 flex items-center justify-center p-2">
+                        <div class="w-6 h-5 flex flex-col justify-between"> <span
+                                class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span> <span
+                                class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span> <span
+                                class="w-full h-0.5 bg-gray-600 dark:bg-gray-400 transition-all"></span> </div>
+                    </button> </div>
             </nav>
         </div>
-    </header>
-
-    <!-- Mobile Menu -->
+    </header> <!-- Mobile Menu -->
     <div id="mobileMenu"
         class="fixed inset-0 bg-white dark:bg-dark-background z-50 transform translate-x-full transition-transform duration-300 md:hidden">
-        <div class="container mx-auto px-4 h-full flex flex-col">
+        <div class="container mx-auto px-4 h-full flex flex-col"> <!-- Mobile Menu Header -->
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <a href="#" class="text-xl font-extrabold">Odlotowy</span>
-                        <span class="text-primary text-2xl ml-1">•</span>
-                </div>
-                <button id="closeMenu" class="p-2">
-                    <i class="fa-solid fa-square-xmark text-gray-600 dark:text-gray-400 text-2xl"></i>
-                </button>
-            </div>
+                <div class="flex items-center"> <a href="#" class="text-xl font-extrabold">Odlotowy</a> <span
+                        class="text-primary text-2xl ml-1">•</span> </div> <button id="closeMenu"
+                    aria-label="Close menu" class="p-2"> <i
+                        class="fa-solid fa-square-xmark text-gray-600 dark:text-gray-400 text-2xl"></i> </button>
+            </div> <!-- Mobile Navigation -->
             <ul class="flex-1 flex flex-col justify-center items-center space-y-8">
-                <li>
-                    <a href="#features"
-                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Showcase</a>
-                </li>
-                <li>
-                    <a href="#About"
-                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">About</a>
-                </li>
-                <li>
-                    <a href="#skills"
-                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Skills</a>
-                </li>
-                <li>
-                    <a href="#projects"
-                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact"
-                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">Contact</a>
-                </li>
+                <li> <a href="#features"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        Showcase </a> </li>
+                <li> <a href="#about"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        About </a> </li>
+                <li> <a href="#skills"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        Skills </a> </li>
+                <li> <a href="#projects"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        Projects </a> </li>
+                <li> <a href="#contact"
+                        class="text-2xl text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
+                        Contact </a> </li>
             </ul>
         </div>
     </div>
@@ -162,10 +138,10 @@
                 The tools and technologies I use to build modern, reliable, and user-friendly applications.
             </p>
 
-            <div class="grid grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
                 <!-- Feature Card 1 -->
                 <div
-                    class="bg-white dark:bg-dark-background p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    class="bg-white dark:bg-dark-background p-6 sm:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                         <i class="fa-solid fa-code-branch text-primary text-xl"></i>
                     </div>
@@ -176,7 +152,7 @@
                 </div>
                 <!-- Feature Card 2 -->
                 <div
-                    class="bg-white dark:bg-dark-background p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    class="bg-white dark:bg-dark-background p-6 sm:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                         <i class="fa-brands fa-discord text-primary text-xl"></i>
                     </div>
@@ -187,7 +163,7 @@
                 </div>
                 <!-- Feature Card 3 -->
                 <div
-                    class="bg-white dark:bg-dark-background p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    class="bg-white dark:bg-dark-background p-6 sm:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                         <i class="fa-solid fa-code text-primary text-xl"></i>
                     </div>
@@ -198,7 +174,7 @@
                 </div>
                 <!-- Feature Card 4 -->
                 <div
-                    class="bg-white dark:bg-dark-background p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    class="bg-white dark:bg-dark-background p-6 sm:p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-6">
                         <i class="fa-solid fa-bolt text-primary text-xl"></i>
                     </div>
@@ -591,7 +567,7 @@
 
     <!-- Back to Top Button -->
     <button id="backToTop" aria-label="Scroll to top"
-        class="fixed bottom-8 right-8 z-50 p-3.5 rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-blue-600 hover:scale-110 hover:-translate-y-1 active:scale-95 group focus:outline-none opacity-0 pointer-events-none translate-y-4">
+        class="fixed bottom-8 right-8 z-40 p-3.5 rounded-full bg-primary text-white shadow-lg shadow-primary/30 transition-all duration-300 hover:bg-blue-600 hover:scale-110 hover:-translate-y-1 active:scale-95 group focus:outline-none opacity-0 pointer-events-none translate-y-4">
         <i class="fa-solid fa-arrow-up text-lg group-hover:-translate-y-0.5 transition-transform"></i>
     </button>
 
@@ -659,17 +635,18 @@
                         </div>
                         <h3 class="text-xl font-bold mb-2">Social</h3>
                         <div class="flex justify-center space-x-4">
-                            <a href="#"
-                                class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                                <i class="fa-brands fa-snapchat"></i>
-                            </a>
-                            <a href="#"
+                            <a href="https://github.com/odlotowy" target="_blank"
                                 class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
                                 <i class="fa-brands fa-github"></i>
+
                             </a>
-                            <a href="#"
+                            <a href="https://discord.com/users/1177912080490319903" target="_blank"
                                 class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
-                                <i class="fa-brands fa-twitter"></i>
+                                <i class="fa-brands fa-discord"></i>
+                            </a>
+                            <a href="mailto:jack.perter12@gmail.com" target="_blank"
+                                class="w-10 h-10 bg-gray-100 dark:bg-dark-background-secondary rounded-full flex items-center justify-center text-gray-600 hover:text-primary dark:hover:text-primary dark:text-gray-400 transition-all duration-300">
+                                <i class="fa-solid fa-envelope"></i>
                             </a>
                         </div>
                     </div>
